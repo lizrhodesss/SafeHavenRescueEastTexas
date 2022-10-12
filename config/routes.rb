@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :admins
+  resources :adoption_forms
+  resources :donation_forms
+  resources :dogs
     # route to test your configuration
     get '/hello', to: 'application#hello_world'
 
