@@ -8,12 +8,12 @@ class CreateDogs < ActiveRecord::Migration[7.0]
       t.string :adoptionDate
       t.boolean :vaccinesUpToDate
       t.string :vaccinesGiven
-      t.boolean :SpayNeuter
+      t.boolean :spayNeuter
       t.string :spayNeuterDate
       t.boolean :available
       t.string :DOB
       t.boolean :heartwormStatus
-      t.boolean :heartowrmPrevention
+      t.boolean :heartwormPrevention
       t.string :heartwormProduct
       t.string :temperment
 

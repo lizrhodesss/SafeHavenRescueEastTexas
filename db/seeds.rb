@@ -8,14 +8,14 @@ d6 = Dog.create(name: "Dot", available: true, DOB: "6, 2019", breed: "border col
 
 
 puts "creating donationForms"
-df1 = DonationForm.create(Name: "Susan Smith", email: "ss1979@aol.com", admin_id: 1, dog_id: d1.id, amount: "$50")
-df2 = DonationForm.create(Name: "Joe Peabody", email: "JoeyP@hotmail.com", admin_id: 1, dog_id: d1.id, amount: "$50")
-df3 = DonationForm.create(Name: "Stan Shumeister", email: "stan.stomps@yahoo.com", admin_id: 1, dog_id: d1.id, amount: "$50")
+df1 = DonationForm.create(name: "Susan Smith", email: "ss1979@aol.com", admin_id: 1, dog_id: d1.id, amount: 50)
+df2 = DonationForm.create(name: "Joe Peabody", email: "JoeyP@hotmail.com", admin_id: 1, dog_id: d3.id, amount: 125)
+df3 = DonationForm.create(name: "Stan Shumeister", email: "stan.stomps@yahoo.com", admin_id: 1, dog_id: d3.id, amount: $25)
 
 puts "creating adoptionForms"
-af1 = AdoptionForm.create(name: "Michele Michaels", email: "littlegreen_mm@gmail.com", dog_id: d4.id, admin_id: 1, other_pets: true, children: ture, whyForeverHome: "we want to add to our pack and Ginny seems like she would fit in so well!", work: "work from home, marketing")
-af2 = AdoptionForm.create(name: "Mary Montgomery", email: "maryhasalittleterror@gmail.com", dog_id: d5.id, admin_id: 1, other_pets: false, children: false, whyForeverHome: "my job went fully remote, but i miss having co workers", work: "software developer")
-af3 = AdoptionForm.create(name: "Bradley Houston", email: "b.rad.1992@gmail.com", dog_id: d6.id, admin_id: 1, other_pets: true, children: false, whyForeverHome: "my cat needs company, and I want a hiking partner", work: "chef")
+af1 = AdoptionForm.create(name: "Michele Michaels", email: "littlegreen_mm@gmail.com", dog_id: d4.id, admin_id: 1, otherPets: true, children: true, whyForeverHome: "we want to add to our pack and Ginny seems like she would fit in so well!", work: "work from home, marketing")
+af2 = AdoptionForm.create(name: "Mary Montgomery", email: "maryhasalittleterror@gmail.com", dog_id: d5.id, admin_id: 1, otherPets: false, children: false, whyForeverHome: "my job went fully remote, but i miss having co workers, looking for a work buddy", work: "software engineer")
+af3 = AdoptionForm.create(name: "Bradley Houston", email: "b.rad.1992@gmail.com", dog_id: d6.id, admin_id: 1, otherPets: true, children: false, whyForeverHome: "my cat needs company, and I want a hiking partner", work: "chef")
 
 puts "making admin"
 a1 = Admin.create(username: "Georgia.Mclain", password: "adoptdontshop")
