@@ -1,3 +1,3 @@
 class AdoptionFormSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :dog_id, :otherPets, :children, :whyForeverHome, :work, :email
 end

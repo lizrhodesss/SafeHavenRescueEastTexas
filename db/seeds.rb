@@ -10,7 +10,7 @@ d6 = Dog.create(name: "Dot", available: true, DOB: "6, 2019", breed: "border col
 puts "creating donationForms"
 df1 = DonationForm.create(name: "Susan Smith", email: "ss1979@aol.com", admin_id: 1, dog_id: d1.id, amount: 50)
 df2 = DonationForm.create(name: "Joe Peabody", email: "JoeyP@hotmail.com", admin_id: 1, dog_id: d3.id, amount: 125)
-df3 = DonationForm.create(name: "Stan Shumeister", email: "stan.stomps@yahoo.com", admin_id: 1, dog_id: d3.id, amount: $25)
+df3 = DonationForm.create(name: "Stan Shumeister", email: "stan.stomps@yahoo.com", admin_id: 1, dog_id: d3.id, amount: 25)
 
 puts "creating adoptionForms"
 af1 = AdoptionForm.create(name: "Michele Michaels", email: "littlegreen_mm@gmail.com", dog_id: d4.id, admin_id: 1, otherPets: true, children: true, whyForeverHome: "we want to add to our pack and Ginny seems like she would fit in so well!", work: "work from home, marketing")

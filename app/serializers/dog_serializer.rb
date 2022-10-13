@@ -1,3 +1,7 @@
 class DogSerializer < ActiveModel::Serializer
-  attributes :id, :name, :breed, :photo, :instakeDate, :adoptionDate, :vaccineStatus, :SpayNeuter
+  attributes :id, :name, :breed, :photo, :intakeDate, :adoptionDate, :vaccinesUpToDate, :spayNeuter, :vaccinesGiven, :spayNeuterDate, :available, :DOB, :heartwormStatus, :temperment, :heartwormPrevention, :heartwormProduct
 end
+
+
+
+
