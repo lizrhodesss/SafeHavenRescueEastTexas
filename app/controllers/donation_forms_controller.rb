@@ -1,5 +1,10 @@
 class DonationFormsController < ApplicationController
 
+    
+    def index
+        render json: DonationForm.all, status: :ok
+    end
+    
     def show
         donationForm = DonationForm.find(params[:id])
         Render json: donationForm, status: :ok
@@ -7,8 +12,8 @@ class DonationFormsController < ApplicationController
     end
     
     def create
-        dog = Dog.create!(donation_params)
-        render json: dog, status: :created
+        donationForm = DonationForm.create!(donation_params)
+        render json: donationForm, status: :created
     end
 
 

@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+    skip_before_action :authorize, only: [:index, :show]
 
     def index
         render json: Dog.all, status: :ok
@@ -16,8 +17,9 @@ class DogsController < ApplicationController
 
 
   def update
-        dog = Dog.update!(dog_params)
-        render json: dog, status: :ok
+        dog = Dog.find(params[:id])
+        dog.update!(dog_params)
+        render json: dog, status: :accepted
     end
 
 
