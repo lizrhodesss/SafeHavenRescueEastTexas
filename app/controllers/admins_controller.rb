@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
     # skip_before_action :authorize, only: :create
-    skip_before_action :authorize, only: [:index, :show, :update, :create]
+    #skip_before_action :authorize, only: [:index, :show, :update, :create]
 
     def index
         render json: Admin.all, status: :ok

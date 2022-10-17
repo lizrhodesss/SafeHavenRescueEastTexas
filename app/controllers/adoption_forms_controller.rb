@@ -1,5 +1,5 @@
 class AdoptionFormsController < ApplicationController
-    skip_before_action :authorize, only: :create
+    #skip_before_action :authorize, only: :create
     
     def index
         render json: AdoptionForm.all, status: :ok
