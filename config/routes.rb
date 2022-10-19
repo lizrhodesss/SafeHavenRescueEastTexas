@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   post "/signup", to: "admins#create"
   delete "/logout", to: "sessions#destroy"
-  # get "/available_pets", to: "dogs#index"
   post "/new_dog", to: "dogs#create"
   post "application", to: "adoption_forms#create"
 

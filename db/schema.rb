@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_12_192648) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_19_134531) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_192648) do
     t.boolean "heartwormStatus"
     t.boolean "heartwormPrevention"
     t.string "heartwormProduct"
-    t.string "temperment"
+    t.string "temperament"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,7 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_192648) do
     t.string "name"
     t.string "email"
     t.integer "amount"
-    t.integer "dog_id"
     t.integer "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

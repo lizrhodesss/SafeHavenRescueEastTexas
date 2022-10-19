@@ -26,6 +26,6 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.permit(:name, :breed, :photo, :intakeDate, :adoptionDate, :vaccinesUpToDate, :DOB, :spayNeuter, :heartwormStatus, :vaccinesGiven, :spayNeuterDate, :available, :temperment, :heartwormPrevention, :heartwormProduct)
+        params.permit(:name, :breed, :photo, :intakeDate, :adoptionDate, :vaccinesUpToDate, :DOB, :spayNeuter, :heartwormStatus, :vaccinesGiven, :spayNeuterDate, :available, :temperament, :heartwormPrevention, :heartwormProduct)
     end
 end

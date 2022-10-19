@@ -1,5 +1,6 @@
 class Dog < ApplicationRecord
-    validates :name, :breed, :photo, :intakeDate, :vaccinesUpToDate, :vaccinesGiven, :spayNeuterDate, :heartwormStatus, :heartwormPrevention, presence: true
+   validates :name, presence: true
+   #:breed, :photo, :intakeDate, :vaccinesUpToDate, :vaccinesGiven, :spayNeuterDate, :heartwormStatus, :heartwormPrevention, presence: true
 
 
     has_many :donation_forms
