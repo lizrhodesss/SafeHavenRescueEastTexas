@@ -22,3 +22,5 @@ end
 # //trying to show index of all available dogs to unauth users
 
 # will that mean a custom controller method? 
+
+# history.push(`/donate/${data.dontate.id}`))

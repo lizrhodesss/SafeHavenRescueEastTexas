@@ -21,6 +21,6 @@ class DonationFormsController < ApplicationController
 
     private
     def donation_params
-        params.permit(:name, :dog_id, :otherPets, :children, :whyForeverHome, :work, :email)
+        params.permit(:name, :dog_id, :email, :amount)
     end
 end

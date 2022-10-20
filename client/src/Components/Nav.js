@@ -1,5 +1,5 @@
 import React from 'react'
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 function Nav() {
@@ -9,20 +9,20 @@ function Nav() {
 
   return (
     <>
-       {/* <nav>
+       <nav>
             <NavLink exact to="/">
             Home
             </NavLink>
-            <NavLink exact to="/signup">
+            <NavLink exact to="/adoptablePets">
                Adoptable Pets
                </NavLink>
-            <NavLink exact to="/quotes">
+            {/* <NavLink exact to="/Donate">
                 How You Can Help
-            </NavLink>
-            <NavLink exact to="/login">
+            </NavLink> */}
+            <NavLink exact to="/about">
                About Us
                </NavLink>
-        </nav> */}
+        </nav>
     </>
   )
 }
