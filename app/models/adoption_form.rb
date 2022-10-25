@@ -1,5 +1,5 @@
 class AdoptionForm < ApplicationRecord
-   validates :name,  :email, :otherPets, :whyForeverHome, presence: true
+   validates :admin_id, presence: true
 
 
     belongs_to :dog

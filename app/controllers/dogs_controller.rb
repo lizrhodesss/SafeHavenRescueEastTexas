@@ -17,15 +17,21 @@ class DogsController < ApplicationController
 
 
   def update
+    # binding.pry 
         dog = Dog.find(params[:id])
         dog.update!(dog_params)
         render json: dog, status: :accepted
     end
 
+    def destroy
+        Dog.find(params[:id]).destroy
+        render json: {}
+        head :no_content
+    end
 
     private
 
     def dog_params
-        params.permit(:name, :breed, :photo, :intakeDate, :adoptionDate, :vaccinesUpToDate, :DOB, :spayNeuter, :heartwormStatus, :vaccinesGiven, :spayNeuterDate, :available, :temperament, :heartwormPrevention, :heartwormProduct)
+        params.permit(:name, :breed, :photo, :intakeDate, :adoptionDate, :vaccinesUpToDate, :DOB, :spayNeuter, :heartwormStatus, :vaccinesGiven, :spayNeuterDate, :available, :temperament, :heartwormPrevention, :heartwormProduct, :id, :dog)
     end
 end

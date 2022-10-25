@@ -1,4 +1,4 @@
-import {  BrowserRouter, Switch, Route } from "react-router-dom"
+import {  BrowserRouter, Switch, Route, Routes } from "react-router-dom"
 import React, { useEffect, useState } from "react";
 import './App.css'
 import Home from './Components/Home'
@@ -6,6 +6,9 @@ import Nav from './Components/Nav'
 import About from './Components/About'
 import AdoptablePets from './Components/AdoptablePets'
 import Donate from './Components/Donate'
+import AdoptionForm from './Components/AdoptionForm'
+import Admin from './Components/Admin'
+
 
 
 function App() {
@@ -21,7 +24,6 @@ function App() {
   //   });
   // }, []);
 
-      //fetch all dogs to pass down as props from here to children, conditional rendering for adoptable pets and admin/all pets
   useEffect(() => {
         fetch("/dogs")
         .then((resp) => resp.json())
@@ -33,10 +35,8 @@ function App() {
 
 
     let filterAvailableDogs = dogs.filter(dog => dog.available == (true))
-    console.log(filterAvailableDogs)
 
 
-    
 
   return (
     <div>
@@ -46,16 +46,24 @@ function App() {
             <About />
           </Route>
 
-          <Route exact path='/'>
-            <Home />
-          </Route>
-
           <Route exact path='/AdoptablePets'>
             <AdoptablePets dogs={filterAvailableDogs}/>
           </Route>
 
           <Route exact path='/Donate'>
             <Donate />
+          </Route>
+
+          <Route exact path='/AdoptionForm'>
+            <AdoptionForm />
+          </Route>
+
+          <Route exact path='/Admin'>
+            <Admin dogs={dogs}/>
+          </Route>
+
+          <Route exact path='/'>
+            <Home />
           </Route>
         </Switch>
     </div>    

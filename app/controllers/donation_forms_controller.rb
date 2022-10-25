@@ -16,7 +16,11 @@ class DonationFormsController < ApplicationController
         render json: donationForm, status: :created
     end
 
-
+    def update
+        donationForm = DonationForm.find(params[:id])
+        donationForm.update!(donation_params)
+	    render json: donationForm, status: :ok
+    end
 
 
     private

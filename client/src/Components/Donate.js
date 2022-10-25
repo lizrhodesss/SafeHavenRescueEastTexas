@@ -1,9 +1,7 @@
-//render header and footer, and donation form
 
-//GET to donation_forms w/ show route to show most recent form
-//POST to donation_forms
 
 import React, { useState } from 'react'
+import {useParams} from 'react-router-dom'
 
 
 
@@ -13,14 +11,14 @@ function Donate() {
     const [donateName, setDonateName] = useState("") 
     const [donateEmail, setDonateEmail] = useState("")
     const [amount, setAmount] = useState(10)
-
-
-
+    
+    
+    let {id} = useParams()
 
     function handleDonateForm(e) {
         e.preventDefault()
 
-        fetch("/donation_forms", {
+        fetch(`/donation_forms/${id}`, {
             method: "PATCH",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({name: donateName, email: donateEmail, amount: amount})
@@ -30,10 +28,6 @@ function Donate() {
 
     }
     
-
-
-
-
 
   return (
     <>

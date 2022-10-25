@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import sharLogo from '../images/SHAR_logo.jpeg'
 
 
 function Nav() {
@@ -10,18 +11,22 @@ function Nav() {
   return (
     <>
        <nav>
-            <NavLink exact to="/">
+            <Link exact to="/">
+            <img src={sharLogo}/>
             Home
-            </NavLink>
-            <NavLink exact to="/adoptablePets">
+            </Link>
+            <Link exact to="/adoptablePets">
                Adoptable Pets
-               </NavLink>
+               </Link>
             {/* <NavLink exact to="/Donate">
                 How You Can Help
             </NavLink> */}
-            <NavLink exact to="/about">
+            <Link exact to="/about">
                About Us
-               </NavLink>
+               </Link>
+              <Link exact to="/admin">
+              Admin
+              </Link>
         </nav>
     </>
   )

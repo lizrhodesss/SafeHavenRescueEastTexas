@@ -15,6 +15,12 @@ class AdoptionFormsController < ApplicationController
        adoptForm = AdoptionForm.create!(adoption_form_params)
         render json: adoptForm, status: :created
     end
+    
+    def update
+        adoptForm = AdoptionForm.find(params[:id])
+        adoptForm.update!(adoption_form_params)
+	    render json: adoptForm, status: :ok
+    end
 
 
     private
