@@ -18,7 +18,7 @@ function DonateCard() {
 
 
   return (
-    <div>hello!
+    <div>
     <TableContainer component={Paper}>
         <Table aria-lable='donations'>
             <TableHead>

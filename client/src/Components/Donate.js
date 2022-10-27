@@ -11,6 +11,7 @@ function Donate() {
     const [donateName, setDonateName] = useState("") 
     const [donateEmail, setDonateEmail] = useState("")
     const [amount, setAmount] = useState(10)
+    // console.log(id)
     
     
     let {id} = useParams()
@@ -28,7 +29,6 @@ function Donate() {
 
     }
     
-
   return (
     <>
         <form onSubmit={handleDonateForm}>

@@ -8,63 +8,92 @@ import AdoptablePets from './Components/AdoptablePets'
 import Donate from './Components/Donate'
 import AdoptionForm from './Components/AdoptionForm'
 import Admin from './Components/Admin'
-
+import Login from './Components/login'
+import DonateCardContainer from './Components/DonateCardContainer'
+// import AdminPetCard from "./Components/AdminPetCard"
+import AdoptionCardContainer from "./Components/AdoptionCardContainer";
 
 
 function App() {
   const [dogs, setDogs] = useState([]);
-  //this will be for auth
+  const [user, setUser] = useState(null)
 
-  // useEffect(() => {
-  //   // auto-login
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
+  // const [filterAvailableDogs, setFilterAvailableDogs] = useState()
+  
+
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
   useEffect(() => {
         fetch("/dogs")
         .then((resp) => resp.json())
-        .then(dogs => setDogs(dogs))
+        .then(dogs => {setDogs(dogs)
+        
+          // setFilterAvailableDogs(dogs.filter(dog => dog.available === true))
+        })
+
+
     }, [])
-
- 
-
-
-
-    let filterAvailableDogs = dogs.filter(dog => dog.available == (true))
+// if (dogs.length > 0)
+//  {let filterAvailableDogs = dogs.filter(dog => dog.available === true)}
+// else {
+//  let filterAvailableDogs = dogs}
 
 
 
   return (
     <div>
-      <Nav />
+      <Nav user={user} setUser={setUser}/>
         <Switch>
           <Route exact path='/about'>
             <About />
           </Route>
-
+            {/* {filterAvailableDogs ? */}
           <Route exact path='/AdoptablePets'>
-            <AdoptablePets dogs={filterAvailableDogs}/>
-          </Route>
-
-          <Route exact path='/Donate'>
+            <AdoptablePets dogs={dogs}/>
+          </Route> 
+          {/* : null} */}
+          <Route exact path='/donation_forms/:id'>
             <Donate />
           </Route>
 
-          <Route exact path='/AdoptionForm'>
+          <Route exact path='/adoption_forms/:id'>
             <AdoptionForm />
           </Route>
 
           <Route exact path='/Admin'>
-            <Admin dogs={dogs}/>
+            <Admin dogs={dogs} user={user} setUser={setUser}/>
           </Route>
+
+          <Route exact path='/Login'>
+            <Login user={user} setUser={setUser} />
+          </Route>
+ 
+          <Route exact path='/admin/donations'>
+            <DonateCardContainer />
+          </Route> 
+
+          <Route exact path='/admin/adoptions'>
+            <AdoptionCardContainer dogs={dogs}/>
+          </Route> 
+
+          <Route exact path='/admin/allPets'>
+            <Admin dogs={dogs} setDogs={setDogs}/>
+          </Route> 
 
           <Route exact path='/'>
             <Home />
           </Route>
+
+          {/* <Route exact path='/admin/donations'>
+            <Admin dogs={dogs} />
+          </Route> */}
+         
         </Switch>
     </div>    
  )

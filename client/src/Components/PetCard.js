@@ -9,6 +9,7 @@ function PetCard({dog}) {
   const [newDonationState, setNewDonationState] = useState({})
   const [newAdoptionState, setNewAdoptionState] = useState({})
   
+  
   const history = useHistory()
 
   const handleDonatePost = async() => {
@@ -75,7 +76,7 @@ function PetCard({dog}) {
       <div>Health Details- <br/> 
         Vaccines up to date? {dog.vaccinesUpToDate}<br/>
         Vaccines given: {dog.vaccinesGiven}
-        </div>
+      </div>
       <div>Bio: {dog.temperament}</div>
       <button type="submit" onClick={handleDonatePost}>click here to sponsor this dog</button>
       <Button type="submit" onClick={handleAdoptionPost}>start your application to adopt</Button>

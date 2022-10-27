@@ -1,65 +1,28 @@
 import React, { useState } from 'react'
 
-function EditPets({dog}) {
-
-    const [dogName, setDogName] = useState(dog.name)
-    const [photo, setPhoto] = useState(dog.photo)
-    const [intakeDate, setIntakeDate] = useState(dog.intakeDate)
-    const [DOB, setDOB] = useState(dog.DOB)
-    const [breed, setBreed] = useState(dog.breed)
-    const [available, setAvailable] = useState(dog.available)
-    const [adoptionDate, setAdoptionDate] = useState(dog.adoptionDate)
-    const [vaccinesUpToDate, setVaccinesUpToDate] = useState(dog.vaccinesUpToDate)
-    const [vaccinesGiven,setVaccinesGiven] = useState(dog.vaccinesGiven)
-    const [temperament, setTemperament] = useState(dog.temperament)
-    const [spayNeuter,setSpayNeuter] = useState(dog.spayNeuter)
-    const [spayNeuterDate,setSpayNeuterDate] = useState(dog.spayNeuterDate)
-    const [heartwormStatus,setHeartwormStatus] = useState(dog.heartwormStatus)
-    const [heartwormProduct, setHeartwormProduct] = useState(dog.heartwormProduct)
-    const [heartwormPrevention, setHeartwormPrevention] = useState(dog.heartwormPrevention)
-
-    // const [newDogForm, setNewDogForm] = useState({})
-    
+function CreateDog({dogs, dog, setDogs}) {
+    const [dogName, setDogName] = useState("")
+    const [photo, setPhoto] = useState("")
+    const [intakeDate, setIntakeDate] = useState("")
+    const [DOB, setDOB] = useState("")
+    const [breed, setBreed] = useState("")
+    const [available, setAvailable] = useState(true)
+    const [adoptionDate, setAdoptionDate] = useState("")
+    const [vaccinesUpToDate, setVaccinesUpToDate] = useState(false)
+    const [vaccinesGiven,setVaccinesGiven] = useState("")
+    const [temperament, setTemperament] = useState("")
+    const [spayNeuter,setSpayNeuter] = useState(false)
+    const [spayNeuterDate,setSpayNeuterDate] = useState("")
+    const [heartwormStatus,setHeartwormStatus] = useState(false)
+    const [heartwormProduct, setHeartwormProduct] = useState("")
+    const [heartwormPrevention, setHeartwormPrevention] = useState(true)
 
 
-    // const handleNewDog = (e) => {
-    //     e.preventDefault()
-    //      fetch(`/dogs`, {
-    //         method: "POST",
-    //         headers: {"Content-Type" : "application/json"},
-    //         body: JSON.stringify({
-    //             breed: breed,
-    //             name : dogName,
-    //             photo : photo,
-    //             vaccinesUpToDate : vaccinesUpToDate,
-    //             vaccinesGiven : vaccinesGiven,
-    //             spayNeuter : spayNeuter,
-    //             spayNeuterDate : spayNeuterDate,
-    //             available : available,
-    //             DOB : DOB,
-    //             heartwormStatus : heartwormStatus,
-    //             heartwormPrevention : heartwormPrevention,
-    //             heartwormProduct : heartwormProduct,
-    //             temperament : temperament,
-    //             adoptionDate : adoptionDate
-    //         })
-           
-    //     }
-    //    ) 
-    // }
 
-
-        function handleDelete(e){ 
-            fetch(`/dogs/${dog.id}`, {
-            method: "DELETE"
-        })
-        }
-        
-
-        function handleDogForm(e) {
-            e.preventDefault()
-          fetch(`/dogs/${dog.id}`, {
-            method: "PATCH",
+    function handleNewDog(e) {
+        e.preventDefault()
+         fetch(`/dogs`, {
+            method: "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({
                 breed: breed,
@@ -78,16 +41,15 @@ function EditPets({dog}) {
                 adoptionDate : adoptionDate
             })
         })
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-        }
-
+            .then(resp => resp.json())
+            .then(data => setDogs([...dogs, data]))
+            
+    }
 
 
   return (
-    <div> 
-         {/* <button onCLick={handleNewDog}>create a new dog</button> */}
-       <form onSubmit={handleDogForm}>
+    <div>
+        <form onSubmit={(e) => handleNewDog(e)}>
             <label  htmlFor="name">Name: </label>
             <input 
             type="text"
@@ -183,7 +145,7 @@ function EditPets({dog}) {
             <label>What heartworm prevention or treatment is being is administered? </label>
             <input 
             type="text"
-        onChange = {(e) => setHeartwormProduct(e.target.value)}
+            onChange = {(e) => setHeartwormProduct(e.target.value)}
             value={heartwormProduct}
             />
         
@@ -202,12 +164,10 @@ function EditPets({dog}) {
             onChange = {(e) => setTemperament(e.target.value)}
             value={temperament}
             />
-            <button onClick={handleDogForm} type="submit">Edit Dog Details </button>
-            <button onClick={e => handleDelete(e)}type="delete">Delete pet from the database-</button>
+        <button type='submit'>add dog to records</button>
         </form> 
-             
     </div>
   )
 }
 
-export default EditPets
+export default CreateDog

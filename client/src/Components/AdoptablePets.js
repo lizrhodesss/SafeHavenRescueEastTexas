@@ -5,10 +5,13 @@ import PetCard from './PetCard'
 
 function AdoptablePets({dogs}) {
 
+  let filterAvailableDogs = dogs.filter(dog => dog.available === true)
+console.log(dogs)
+
 
   return (
     <>
-     {dogs.map(dog => <PetCard dog={dog} key={dog.id}/>)}
+     {filterAvailableDogs.map(dog => <PetCard dog={dog} key={dog.id}/>)}
     
     </>
   )
