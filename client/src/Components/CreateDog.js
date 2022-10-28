@@ -119,13 +119,6 @@ function CreateDog({dogs, dog, setDogs}) {
                 value={temperament}/>
             </Form.Field>
 
-            {/* <Form.Input>
-                <lable>Are vaccines up to date?</lable>
-                <input
-               />
-            </Form.Input> */}
-
-
             <Form.Field>
                 <lable>What vaccines have been given? </lable>
                 <input
@@ -146,7 +139,7 @@ function CreateDog({dogs, dog, setDogs}) {
                 <Checkbox lable="Is this dog available for adoption?"/>
             </Form.Field>
 
-            <Form.Field>
+            {/* <Form.Field>
                 <Checkbox lable="Are vaccines up to date"/>
             </Form.Field>
             
@@ -160,8 +153,8 @@ function CreateDog({dogs, dog, setDogs}) {
 
             <Form.Field>
                 <Checkbox lable="Is this dog being treated for heartworm prevention?"/>
-            </Form.Field>
-            
+            </Form.Field> */}
+            <Button type="submit">Add pet to records!</Button>
         </Form>   
         </div>
     </Container>

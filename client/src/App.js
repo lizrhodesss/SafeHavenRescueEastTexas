@@ -51,6 +51,7 @@ function App() {
       <Nav user={user} setUser={setUser}/>
         <Switch>
           <Route exact path='/about'>
+            <br></br>
             <About />
           </Route>
             {/* {filterAvailableDogs ? */}

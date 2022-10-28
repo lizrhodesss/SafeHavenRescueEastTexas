@@ -1,5 +1,5 @@
 class DonationFormsController < ApplicationController
-
+    skip_before_action :authorize, only: [:update, :create]
     
     def index
         render json: DonationForm.all, status: :ok

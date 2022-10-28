@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import DonateCard from './DonateCard'
 import AdminPetCard from './AdminPetCard'
 import CreateDog from './CreateDog'
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid, Button } from 'semantic-ui-react'
 
 
 function Admin({dogs, dog, setDogs}) {
@@ -25,7 +25,8 @@ function Admin({dogs, dog, setDogs}) {
   return (
     <>
       {/* {donateAdmin.map(donate => <DonateCard />)} */}
-      <button onClick={showNewDogForm}>create a new dog</button><br></br>
+      <br></br>
+      <Button onClick={showNewDogForm}>create a new dog</Button><br></br>
       <br></br>
       <br></br>
       <Grid columns={4}>

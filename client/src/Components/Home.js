@@ -9,14 +9,17 @@ function Home() {
 
 
   return (
-    <div>
-          <br></br>
-      <h3>Our mission is to reduce the number of abandoned animals caused by an abundance of unplanned litters through neutering and
+    <div class="grid-container">
+      <br></br>
+      <div class="grid-item-1"> <h3>Our mission is to reduce the number of abandoned animals caused by an abundance of unplanned litters through neutering and
           spaying program that concentrates on low-income households. To educate the public on care of animals and the need for
           spaying/neutering.
       </h3>
-          <br></br>
-      <img src={happyDog}/> 
+      </div>
+      <div className="home-photo" class="grid-item-2">
+          <img src={happyDog}/> 
+      </div>
+      
       <About />     
     </div>
   )
@@ -24,3 +27,7 @@ function Home() {
 
 
 export default Home
+
+
+// <div class="grid-item-1"></div>
+//       <div class="grid-item-1"></div>
