@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import DonateCard from './DonateCard'
 import AdminPetCard from './AdminPetCard'
 import CreateDog from './CreateDog'
-
+import { Card, Grid } from 'semantic-ui-react'
 
 
 function Admin({dogs, dog, setDogs}) {
-  const [newDogForm, setNewDogForm] = useState({})
+  const [newDogForm, setNewDogForm] = useState(false)
   // const [adoptForms,setAdoptForms] = useState([])
   
 
@@ -25,12 +25,15 @@ function Admin({dogs, dog, setDogs}) {
   return (
     <>
       {/* {donateAdmin.map(donate => <DonateCard />)} */}
+      <button onClick={showNewDogForm}>create a new dog</button><br></br>
+      <br></br>
+      <br></br>
+      <Grid columns={4}>
             {newDogForm ? <CreateDog setDogs={setDogs} dogs={dogs} dog={dog}/> : null}
-      <button onClick={showNewDogForm}>create a new dog</button>
       {dogs ? dogs.map(dog => <AdminPetCard  dogs={dogs} dog={dog} key={dog.id}/>) : "loading"}
  
       {/* {adoptForms.map(adoptForm => <AdoptCard  adoptForm={adoptForm} adoptForms={adoptForms} dogs={dogs} key={adoptForms.id}/>)} */}
-      
+      </Grid>
     </>
   )
   }

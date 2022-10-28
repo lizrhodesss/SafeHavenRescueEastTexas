@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AdoptCard from './AdoptCard'
+import { Card, Grid } from 'semantic-ui-react'
 
 function AdoptionCardContainer({dogs}) {
 
@@ -15,9 +16,9 @@ function AdoptionCardContainer({dogs}) {
 
 
   return (
-    <div>
-        {adoptForms.map(adoptForm => <AdoptCard  adoptForm={adoptForm} adoptForms={adoptForms} dogs={dogs} key={adoptForms.id}/>)}
-    </div>
+    <Grid divided='vertically'>
+        {adoptForms.map(adoptForm => <AdoptCard  adoptForm={adoptForm} adoptForms={adoptForms} dogs={dogs} key={adoptForms.id}/>)}<br></br>
+  </Grid>
   )
 }
 

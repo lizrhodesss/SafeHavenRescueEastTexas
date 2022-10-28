@@ -203,7 +203,7 @@ function EditPets({dog}) {
             value={temperament}
             />
             <button onClick={handleDogForm} type="submit">Edit Dog Details </button>
-            <button onClick={e => handleDelete(e)}type="delete">Delete pet from the database-</button>
+            <button onClick={e => handleDelete(e)} type="delete">Delete pet from the database-</button>
         </form> 
              
     </div>

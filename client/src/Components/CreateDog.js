@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button, Checkbox, Form, Container, Header } from 'semantic-ui-react'
 
 function CreateDog({dogs, dog, setDogs}) {
     const [dogName, setDogName] = useState("")
@@ -48,126 +49,241 @@ function CreateDog({dogs, dog, setDogs}) {
 
 
   return (
-    <div>
-        <form onSubmit={(e) => handleNewDog(e)}>
-            <label  htmlFor="name">Name: </label>
-            <input 
-            type="text"
-            onChange = {(e) => setDogName(e.target.value)}
-            value={dogName}
-            />
+    <Container fluid textAlign="center">
+        <Header as='h4'>Add a new pet </Header> <br></br>
+      
+        <div class="ui one column center aligned page grid">
+        <Form size="medium" onSubmit={(e) => handleNewDog(e)} success="true">
+            <Form.Field>
+                <label>Name:</label>
+                <input 
+                type="text"
+                onChange = {(e) => setDogName(e.target.value)}
+                value={dogName}/>
+            </Form.Field>
 
-            <label>Breed: </label>
-            <input 
-            type="text"
-            onChange = {(e) => setBreed(e.target.value)}
-            value={breed}
-            />
+            <Form.Field>
+                <lable>Breed: </lable>
+                <input
+                type="text"
+                onChange = {(e) => setBreed(e.target.value)}
+                value={breed}/>
+            </Form.Field>
 
-            <label>Estimated age/DOB- </label>
-            <input 
-            type="text"
-            onChange = {(e) => setDOB(e.target.value)}
-            value={DOB}
-            />
+            <Form.Field>
+                <lable>Estimated age/DOB-</lable>
+                <input
+                type="text"
+                onChange = {(e) => setDOB(e.target.value)}
+                value={DOB}/>
+            </Form.Field>
 
-            <label>Photo URL: </label>
-            <input 
-            type="text"
-            onChange = {(e) => setPhoto(e.target.value)}
-            value={photo}
-            />
+            <Form.Field>
+                <lable>Photo URL:</lable>
+                <input
+                type="text"
+                onChange = {(e) => setPhoto(e.target.value)}
+                value={photo}/>
+            </Form.Field>
 
-            <label>Is this dog available for adoption?</label>
-            <input 
-            name="available"
-            type="checkbox" 
-            label="Is this dog available for adoption"
-            checked={available}
-            onChange={e => setAvailable(e.target.checked)}
-            />
+            <Form.Field>
+                <lable>IntakeDate</lable>
+                <input
+                type="text"
+                onChange = {(e) => setIntakeDate(e.target.value)}
+                value={intakeDate}
+                />
+            </Form.Field>
 
-            <label>intakeDate: </label>
-            <input 
-            type="text"
-            onChange = {(e) => setIntakeDate(e.target.value)}
-            value={intakeDate}
-            />
+            <Form.Field>
+                <lable>AdoptionDate: </lable>
+                <input
+                type="text"
+                onChange = {(e) => setAdoptionDate(e.target.value)}
+                value={adoptionDate}/>
+            </Form.Field>
 
-            <label>adoptionDate: </label>
-            <input 
-            type="text"
-            onChange = {(e) => setAdoptionDate(e.target.value)}
-            value={adoptionDate}
-            />
+            <Form.Field>
+                <lable>What heartworm prevention or treatment is being is administered?</lable>
+                <input
+                type="text"
+                onChange = {(e) => setHeartwormProduct(e.target.value)}
+                value={heartwormProduct}/>
+            </Form.Field>
+
+            <Form.Field>
+                <lable>What is this dogs temperament? </lable>
+                <input
+                type="text"
+                onChange = {(e) => setTemperament(e.target.value)}
+                value={temperament}/>
+            </Form.Field>
+
+            {/* <Form.Input>
+                <lable>Are vaccines up to date?</lable>
+                <input
+               />
+            </Form.Input> */}
 
 
-            <label>Are vaccines up to date?</label>
-            <input 
-            name="vaccinesUpToDate?"
-            type="checkbox" 
-            label="Are vaccines up to date?"
-            checked={vaccinesUpToDate}
-            onChange={e => setVaccinesUpToDate(e.target.checked)}
-            />
+            <Form.Field>
+                <lable>What vaccines have been given? </lable>
+                <input
+                type="text"
+                onChange = {(e) => setVaccinesGiven(e.target.value)}
+                value={vaccinesGiven}/>
+            </Form.Field>
 
-            <label>What vaccines have been given? </label>
-            <input 
-            type="text"
-            onChange = {(e) => setVaccinesGiven(e.target.value)}
-            value={vaccinesGiven}
-            />
-            <label>Is this dog spayed or neutered?</label>
-            <input 
-            name="spayed or neutered"
-            type="checkbox" 
-            label="Is this dog spayed or neutered"
-            checked={spayNeuter}
-            onChange={e => setSpayNeuter(e.target.checked)}
-            />
+            <Form.Field>
+                <lable>Spay/Neuter date? </lable>
+                <input
+                type="text"
+                onChange = {(e) => setSpayNeuterDate(e.target.value)}
+                value={spayNeuterDate}/>
+            </Form.Field>
 
-            <label>Spay/neuter date? </label>
-            <input 
-            type="text"
-            onChange = {(e) => setSpayNeuterDate(e.target.value)}
-            value={spayNeuterDate}
-            />
+            <Form.Field>
+                <Checkbox lable="Is this dog available for adoption?"/>
+            </Form.Field>
 
-            <label>Is this dog positive for heart-worms?</label>
-            <input 
-            name="heartwormStatus"
-            type="checkbox" 
-            label="Is this dog positive for heart-worms?"
-            checked={heartwormPrevention}
-            onChange={e => setHeartwormStatus(e.target.checked)}
-            />
+            <Form.Field>
+                <Checkbox lable="Are vaccines up to date"/>
+            </Form.Field>
+            
+            <Form.Field>
+                <Checkbox lable="Is this dog spayed or neutered?"/>
+            </Form.Field>
 
-            <label>What heartworm prevention or treatment is being is administered? </label>
-            <input 
-            type="text"
-            onChange = {(e) => setHeartwormProduct(e.target.value)}
-            value={heartwormProduct}
-            />
+            <Form.Field>
+                <Checkbox lable="Is this dog positive for heart-worms?"/>
+            </Form.Field>
+
+            <Form.Field>
+                <Checkbox lable="Is this dog being treated for heartworm prevention?"/>
+            </Form.Field>
+            
+        </Form>   
+        </div>
+    </Container>
         
-            <label>Is this dog being treated for heartworm prevention?</label>
-            <input 
-            name="heartwormPrevention"
-            type="checkbox" 
-            label="Is this dog being treated for heartworm prevention?"
-            checked={heartwormPrevention}
-            onChange={e => setHeartwormPrevention(e.target.checked)}
-            />
+        )
+      }
+      
+      export default CreateDog
+        // <form onSubmit={(e) => handleNewDog(e)}>
+        //     <label  htmlFor="name">Name: </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setDogName(e.target.value)}
+        //     value={dogName}
+        //     />
 
-            <label>What is this dogs temperament? </label>
-            <input 
-            type="text"
-            onChange = {(e) => setTemperament(e.target.value)}
-            value={temperament}
-            />
-        <button type='submit'>add dog to records</button>
-        </form> 
-    </div>
-  )
-}
+        //     <label>Breed: </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setBreed(e.target.value)}
+        //     value={breed}
+        //     />
 
-export default CreateDog
+        //     <label>Estimated age/DOB- </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setDOB(e.target.value)}
+        //     value={DOB}
+        //     />
+
+        //     <label>Photo URL: </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setPhoto(e.target.value)}
+        //     value={photo}
+        //     />
+
+        //     <label>Is this dog available for adoption?</label>
+        //     <input 
+        //     name="available"
+        //     type="checkbox" 
+        //     label="Is this dog available for adoption"
+        //     checked={available}
+        //     onChange={e => setAvailable(e.target.checked)}
+        //     />
+
+        //     <label>intakeDate: </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setIntakeDate(e.target.value)}
+        //     value={intakeDate}
+        //     />
+
+        //     <label>adoptionDate: </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setAdoptionDate(e.target.value)}
+        //     value={adoptionDate}
+        //     />
+
+
+        //     <label>Are vaccines up to date?</label>
+        //     <input 
+        //     name="vaccinesUpToDate?"
+        //     type="checkbox" 
+        //     label="Are vaccines up to date?"
+        //     checked={vaccinesUpToDate}
+        //     onChange={e => setVaccinesUpToDate(e.target.checked)}
+        //     />
+
+        //     <label>What vaccines have been given? </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setVaccinesGiven(e.target.value)}
+        //     value={vaccinesGiven}
+        //     />
+        //     <label>Is this dog spayed or neutered?</label>
+        //     <input 
+        //     name="spayed or neutered"
+        //     type="checkbox" 
+        //     label="Is this dog spayed or neutered"
+        //     checked={spayNeuter}
+        //     onChange={e => setSpayNeuter(e.target.checked)}
+        //     />
+
+        //     <label>Spay/neuter date? </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setSpayNeuterDate(e.target.value)}
+        //     value={spayNeuterDate}
+        //     />
+
+        //     <label>Is this dog positive for heart-worms?</label>
+        //     <input 
+        //     name="heartwormStatus"
+        //     type="checkbox" 
+        //     label="Is this dog positive for heart-worms?"
+        //     checked={heartwormPrevention}
+        //     onChange={e => setHeartwormStatus(e.target.checked)}
+        //     />
+
+        //     <label>What heartworm prevention or treatment is being is administered? </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setHeartwormProduct(e.target.value)}
+        //     value={heartwormProduct}
+        //     />
+        
+        //     <label>Is this dog being treated for heartworm prevention?</label>
+        //     <input 
+        //     name="heartwormPrevention"
+        //     type="checkbox" 
+        //     label="Is this dog being treated for heartworm prevention?"
+        //     checked={heartwormPrevention}
+        //     onChange={e => setHeartwormPrevention(e.target.checked)}
+        //     />
+
+        //     <label>What is this dogs temperament? </label>
+        //     <input 
+        //     type="text"
+        //     onChange = {(e) => setTemperament(e.target.value)}
+        //     value={temperament}
+        //     />
+        // <button type='submit'>add dog to records</button>
+        // </form> 
