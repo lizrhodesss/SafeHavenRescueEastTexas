@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was built using Postgres, Ruby on Rails, React JS, Material and Semantic UI
 
-Things you may want to cover:
+An app to manage and track donations, adoptions, and animals details for a resuce in Northeast Texas.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Future plans for the app include updated styling, switching to a serverless database to allow more flexibility as well as file structure clean up and a more secure login for admin.
